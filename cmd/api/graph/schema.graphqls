@@ -1,0 +1,40 @@
+scalar Time
+scalar JSON
+
+type Station {
+    code: String!
+    name: String!
+    location: String
+    latitude: Float!
+    longitude: Float!
+    capacity: Int!
+    ebike: Int!
+    mechanical: Int!
+    numbikesavailable: Int!
+    numdocksavailable: Int!
+    isActive: Boolean!
+}
+
+type StationSnapshot {
+    timestamp: Time!
+    bikesAvailable: Int!
+    docksAvailable: Int!
+}
+
+enum WindowPeriod {
+    MIN_1
+    MIN_15
+    HOUR_1
+    DAY
+}
+
+type Query {
+    allStations(code: String, name: String, activeOnly: Boolean): [Station!]!
+
+    stationTimeSeries(
+        stationCode: String!
+        from: Time!
+        to: Time!
+        resolution: WindowPeriod = MIN_15
+    ): [StationSnapshot!]!
+}

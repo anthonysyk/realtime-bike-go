@@ -15,7 +15,7 @@ services:
       MONGODB_ADVERTISED_HOSTNAME: 127.0.0.1
       MONGODB_REPLICA_SET_MODE: primary
       MONGODB_REPLICA_SET_KEY: replicasetkey123
-      MONGODB_ROOT_PASSWORD: toor
+      MONGODB_ROOT_PASSWORD: secret
 
   mongo-secondary:
     hostname: mongo-secondary
@@ -33,7 +33,7 @@ services:
       MONGODB_ADVERTISED_HOSTNAME: mongo-secondary
       MONGODB_REPLICA_SET_MODE: secondary
       MONGODB_REPLICA_SET_KEY: replicasetkey123
-      MONGODB_PRIMARY_ROOT_PASSWORD: toor
+      MONGODB_PRIMARY_ROOT_PASSWORD: secret
 
   mongo-arbiter:
     hostname: mongo-arbiter
@@ -51,7 +51,7 @@ services:
       MONGODB_ADVERTISED_HOSTNAME: mongo-arbiter
       MONGODB_REPLICA_SET_MODE: arbiter
       MONGODB_REPLICA_SET_KEY: replicasetkey123
-      MONGODB_PRIMARY_ROOT_PASSWORD: toor
+      MONGODB_PRIMARY_ROOT_PASSWORD: secret
 
   zookeeper:
     image: confluentinc/cp-zookeeper:6.2.0
